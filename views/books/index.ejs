@@ -1,27 +1,28 @@
 <% layout('layouts/boilerplate')%>
 
-    <div class="row row-cols-md-4 g-5 ms-auto">
+    <div class="row row-cols-md-4">
         <% for (let book of books) { %>
             <div class="col mb-5">
-                <div class="card h-100 w-75 border-0">
+                <div class="card mx-auto text-center border-0" style="width: 15rem;">
                     <a href="/books/<%= book._id %>">
                         <% if(book.images.length) {%>
                             <img crossorigin="anonymous" src="<%= book.images[0].url %>" class="card-img-top" alt=""
-                                style="max-width: 200px; max-height: 300px;">
+                                style="max-width: 180px; max-height: 260px;">
                             <% }else {%>
                                 <img crossorigin="anonymous" class="card-img-top"
                                     src="https://res.cloudinary.com/dxygupnug/image/upload/v1687009609/TheBookSpot/nifi4kcltxot2zwujgai.jpg"
-                                    style="max-width: 200px; max-height: 300px;" alt="">
+                                    style="max-width: 180px; max-height: 260px;" alt="">
                                 <% } %>
                     </a>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">
+                    <div class="card-body pb-0">
+                        <h6 class="card-title">
                             <%= book.name %>
-                        </h5>
-                        <p class="card-text">$<%= book.price %>
-                        </p>
-                        <a href="#" class="bi bi-cart-check-fill btn btn-primary"> Buy</a>
+                        </h6>
                     </div>
+                    <ul class="list-group list-group-flush ">
+                        <li class="list-group-item pt-0">$<%= book.price %>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <% } %>
